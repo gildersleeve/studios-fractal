@@ -1,0 +1,128 @@
+/* BLACKOUT AND MODAL ___________________________________________________________________________ */
+
+.modal .closeBtn{
+  top:-40px;
+  right:-40px;
+  background:none;
+  color:@button-text-color;
+  text-shadow: 1px 1px 2px @translucent-bg-color;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+/* -- MODAL -- */
+.blackout {
+  text-align: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  left: 0;
+  z-index: 300;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 215vw;
+
+  &:before {
+    box-sizing: border-box;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: -0.4em;
+    position: relative;
+    content: " ";
+    height: 100%;
+    width: 0;
+  }
+}
+
+.modal {
+  box-sizing: border-box;
+  vertical-align: middle;
+  display:inline-block;
+  text-align: left;
+  max-width: 900px;
+  margin: 32px;
+  width:80%;
+  position:relative !important;
+}
+.modalInner {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  min-height:16em;
+}
+.modalImg {
+  position: absolute;
+  height: 100%;
+  width: 45%;
+}
+.modalContent {
+  padding: 1em 2em;
+  margin-left:45%;
+  margin-bottom: 3em;
+  position: relative;
+}
+.modalFooter {
+  position: absolute;
+  bottom: -1px;
+  width:55%;
+  margin-left: 45%;
+}
+.modal-button {
+  float: left;
+  width: 100%;
+  cursor: pointer;
+  padding: 1em 0;
+  box-sizing: border-box;
+  .transition(all .25s ease-in-out);
+
+  &.left{
+    left: 0;
+    width:50%;
+  }
+
+  &.right{
+    right:0;
+    width:50%;
+  }
+}
+
+@media @portrait {
+
+  .modalImg {
+    position: relative;
+    height: 0%;
+    width: 100%;
+    padding-bottom: 50%;
+    border-right: none;
+  }
+  .modalContent{
+    padding: 1em 2em;
+    margin-left:0%;
+  }
+  .modal, .modalInner{
+    min-height:100vw;
+    max-width: 720px;
+    width: auto !important;
+  }
+  .modalFooter{
+    width:100%;
+    margin-left: 0%;
+  }
+  .contentWrap{
+    vertical-align:top
+  }
+}
+.backgroundImg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+@media @portrait and (min-width: 768px){
+  .modal, .modalInner{
+    min-height: 768px !important;
+  }
+}
+/* X: BLACKOUT AND MODAL ___________________________________________________________________________ */

@@ -1,0 +1,51 @@
+/* ACCORDIoNS ___________________________________________________________________________ */
+
+.accordion-base {
+  .transition(all .35s ease-in-out);
+  padding: 0 0.3em 0.55em 2.3em;
+  cursor:pointer;
+}
+.accordion-label {
+  .accordion-base();
+
+  &:before {
+    .accordion-base();
+    .transition(transform .35s ease-in-out);
+    .rotate(90deg);
+
+    font-family: 'uber-icons22';
+    text-transform: none;
+    font-variant: normal;
+    font-style: normal;
+    font-weight: bold;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\e906";
+    margin-left: -1.75em;
+    margin-right: -100%;
+    min-width:1em;
+    float: left;
+    padding: 0;
+  }
+}
+
+.accordion-text {
+  .accordion-base();
+  border-bottom: solid 1px;
+  margin-bottom:0.6em;
+  padding-bottom: 0;
+  overflow:hidden;
+  cursor: auto;
+  height:auto;
+}
+.closed {
+  .accordion-text{
+    max-height:0 !important;
+  }
+  .accordion-label:before {
+    .transform(none);
+  }
+}
+
+/* X: ACCORDIoNS ___________________________________________________________________________ */

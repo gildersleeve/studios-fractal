@@ -1,0 +1,25 @@
+{
+  "name": "uberpage.3.0.0",
+  "version": "3.0.0",
+  "description": "Everything necessary to build Uberpage 3.x CSS",
+  "main": "index.js",
+  "scripts": {
+    "build-bootstrap": "node-sass --include-path scss dev/bootstrap-4.x/bootstrap-scss/bootstrap-custom.scss build/uberpage.bootstrap.3.0.0.css",
+    "build-skin": "node-sass --include-path scss dev/skin/uberpage-skin.2.4.scss build/uberpage-skin.3.0.0.css",
+    "build-skeleton": "lessc dev/skeleton/less/uberpage-skeleton.2.4.less build/uberpage-skeleton.3.0.0.css",
+    "build-framework": "lessc dev/player/player.less ../public/css/player.css",
+    "build": "npm run build-bootstrap && npm run build-skin && npm run build-skeleton && npm run build-framework && node build.js && cp build/uberpage.min.3.0.0.css ../public/css && cp build/uberpage-skin.3.0.0.css ../public/css",
+    "watch": "nodemon -e scss,less -x \"npm run build\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "connect": "^3.6.3",
+    "less": "^2.7.2",
+    "node-minify": "^2.3.0",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.12.0",
+    "opn": "^5.1.0",
+    "serve-static": "^1.12.4"
+  }
+}

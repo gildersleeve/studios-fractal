@@ -1,0 +1,69 @@
+{
+    "context": {
+        "contentHeading": {
+            "attr": "Section Title",
+            "value": "<h1>My Title</h1>"
+        },
+        "contentText": {
+            "attr": "Section Content",
+            "value": "<p>My Title</p>"
+        },
+
+        "imageBackground": {
+          "attr": "Section Background",
+          "value": ""
+        },
+
+        "imageHero": {
+          "attr": "Section Hero",
+          "value": "//source.unsplash.com/collection/172064/480x486"
+        },
+
+        "cards": [
+          {
+            "card": {
+              "width" : "six",
+              "cardLabel": {
+                "attr": "Card Label 1",
+                "value": "Card Label 1"
+              },
+              "cardText": {
+                "attr": "Card Text 1",
+                "value": "Elen sila lumenn omentilmo, Nae saian luume'. Cormamin lindua ele lle. Saesa omentien lle, vanya sulie Namaarie. Aa' lasser en lle coia orn n' omenta gurtha. Aa' i'sul nora lanne'lle. Aa' menle nauva calen ar' ta hwesta e' ale'quenle. Cormamin niuve tenna' ta elea lle au'. Lissenen ar' maska'lalaith tenna' lye omentuva."
+              },
+              "cardImageFront": {
+                "attr": "Section Hero",
+                "value": "//source.unsplash.com/collection/172064/480x486"
+              },
+              "cardImageBack": {
+                "attr": "Section Hero",
+                "value": "//source.unsplash.com/collection/172064/480x486"
+              }
+            }
+          },
+          {
+            "card": {
+              "cardLabel": {
+                "attr": "Card Label 2",
+                "value": "Card Label 2"
+              },
+              "cardText": {
+                "attr": "Card Text 2",
+                "value": "Elen sila lumenn omentilmo, Nae saian luume'. Cormamin lindua ele lle. Saesa omentien lle, vanya sulie Namaarie. Aa' lasser en lle coia orn n' omenta gurtha. Aa' i'sul nora lanne'lle. Aa' menle nauva calen ar' ta hwesta e' ale'quenle. Cormamin niuve tenna' ta elea lle au'. Lissenen ar' maska'lalaith tenna' lye omentuva."
+              },
+              "cardImageFront": {
+                "attr": "Section Hero",
+                "value": "//source.unsplash.com/collection/172064/480x486"
+              },
+              "cardImageBack": {
+                "attr": "Section Hero",
+                "value": "//source.unsplash.com/collection/172064/480x486"
+              }
+            }
+          }
+
+        ]
+
+
+        }
+}

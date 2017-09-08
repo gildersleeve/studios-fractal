@@ -1,0 +1,12 @@
+{
+    "context": {
+        "tipHeading": {
+            "attr": "Tip Title",
+            "value": "My Tip Title"
+        },
+        "tipText": {
+            "attr": "Tip Content",
+            "value": "<p>My content goes here.</p>"
+        }
+    }
+}

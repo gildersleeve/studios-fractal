@@ -1,0 +1,50 @@
+{{> @adminweb }}
+
+<!-- SCENE -->
+<div class="scene">
+
+  <!-- SECTION01 -->
+  <div class="section main mod_content-bg-off">
+    {{{ returnAttrImage imageBackground}}}
+    <div class="mainBG u-background-size-cover" style="background-image: url('{{returnAttrImagePath imageBackground}}');"></div>
+    <div class="hero">
+      {{{ returnAttrImage imageHero}}}
+      <div class="heroInner u-background-size-cover" style="background-image: url('{{returnAttrImagePath imageHero}}');">
+        <!-- HERO ELEMENTS HERE (POPOVERS, TILES, CAROUSEL, ETC)-->
+
+        <!--X HERO ELEMENTS HERE -->
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="contentBG"></div>
+      <div class="contentInner">
+        <div class="contentInnerBG"></div>
+        <div class="contentHeader">
+
+          {{{ returnAttrText contentHeading}}}
+
+        </div>
+        <div class="contentCopy">
+
+          {{{ returnAttrText contentText}}}
+
+        </div>
+        <!-- INLINE ELEMENTS HERE (CARDS, TILES, ACCORDIANS, ETC-->
+
+        {{#each cards}}
+          {{> @flip_card this.card length=cards.length}}
+        {{/each}}
+
+
+
+        <!--X INLINE ELEMENTS HERE -->
+      </div><!-- X .contentInner -->
+    </div><!-- X .content -->
+
+
+  </div>
+  <!--X SECTION01 -->
+
+</div>
+<!--X SCENE -->

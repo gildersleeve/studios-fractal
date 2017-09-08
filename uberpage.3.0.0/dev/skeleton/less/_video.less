@@ -1,0 +1,191 @@
+
+/* VIDEO BUTTON ___________________________________________________________________________ */
+.videoBox,
+.video,
+#video1,
+.jwplayer {
+  background-color: #000;
+  height:100% !important;
+  width:100% !important;
+  position: absolute;
+  margin:auto;
+  bottom:0;
+  right:0;
+  left:0;
+  top:0;
+}
+.videoButton {
+  height: 0;
+  width: 100%;
+  display: block;
+  cursor:pointer;
+  overflow:hidden;
+  margin-top:1.5em;
+  border-radius:3px;
+  position: relative;
+  padding-bottom: 56.25%;
+  background-color: #000;
+
+  .background{
+    .opacity(0.9);
+    .transition(all .75s ease-out);
+    top:-100%;
+    left:-100%;
+    right:-100%;
+    bottom:-100%;
+    margin: auto;
+    background-repeat: no-repeat;
+  }
+  &:hover {
+    .background{
+      .opacity(1);
+    }
+    .videoIcon .icon{
+      .opacity(0.35);
+    }
+  }
+}
+
+.videoIcon{
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 5em;
+  position:absolute;
+  text-align: center;
+  box-sizing:border-box;
+
+  .icon {
+    height: 100%;
+    .opacity(1);
+    .transition(all 1.5s ease-out);
+    text-shadow:2px 2px 4px rgba(0,0,0,0.6);
+
+    &:before{
+      top:0;
+      left:0;
+      right:0;
+      bottom: 0;
+      width: 1em;
+      height: 1em;
+      margin: auto;
+      display: block;
+      position: absolute;
+    }
+  }
+}
+.videoLabel {
+  bottom: 0;
+  width: 80%;
+  height: auto;
+  padding:0 0.5em;
+  font-size: .85em;
+  text-align: left;
+  font-weight: 500;
+  position: absolute;
+  padding: 0.5em 0.5em;
+  box-sizing: border-box;
+  text-shadow:2px 2px 4px rgba(0,0,0,0.6);
+}
+.videoTime {
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  padding:0 0.5em;
+  font-size: .85em;
+  text-align: right;
+  font-weight: 500;
+  position: absolute;
+  padding: 0.5em 0.5em;
+  box-sizing: border-box;
+  text-shadow:2px 2px 4px rgba(0,0,0,0.6);
+}
+.video-full {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  font-size: 1.3em;
+  position: absolute;
+}
+
+/* X: VIDEO BUTTON ___________________________________________________________________________ */
+
+/* ---- full-bleed video ---- */
+
+.ie8 .fullbleed-video #video1{ display:none; } 
+
+.fullbleed-video{
+  overflow: hidden;
+  position:fixed;
+  height:100%;
+  width:100%;
+  left:0;
+  top:0;
+}
+
+.fullbleed-video #video1,
+.background-video #video1, 
+.fullbleed-video .jwplayer,
+.background-video .jwplayer {
+  padding-bottom: 100% !important;
+  width: 100% !important;
+  padding-bottom: 100vh !important;
+  width: 178.778vh !important;
+  height: 0 !important;
+  position: absolute;
+  margin: auto;
+  bottom:-900%;
+  right:-900%;
+  left:-900%;
+  top:-900%;
+}
+
+/* Adjust when landscape and thinner than usual */
+@media screen and (min-aspect-ratio: 16/9){ 
+.fullbleed-video #video1,
+.background-video #video1, 
+.fullbleed-video .jwplayer,
+.background-video .jwplayer {
+    padding-bottom: 56.25vw !important;
+    width: 100vw !important;
+    height: 0 !important;
+  }
+}
+
+/* Disable when in landscape */
+@media screen and (orientation:portrait){ 
+.fullbleed-video #video1,
+.fullbleed-video .jwplayer {
+    padding-bottom: 100% !important;
+    width: 100% !important;
+    height: 0 !important;
+  }
+}
+
+.fullbleed-video .jwplayer .jwpreview,
+.fullbleed-video #video1_display .jwpreview,
+.fullbleed-video .jwplayer{
+  -ms-background-position:center center !important;
+  background-position:center center !important;
+  -ms-background-size: cover !important;  
+  background-size: cover !important;  
+  background-repeat:no-repeat;
+  behavior: url('/js/htc/backgroundsize/backgroundsize.min.htc') !important;
+}
+/* X: ---- full-bleed video ---- */
+
+/*  ---- position controls at bottom of frame ---- */
+
+.jwfullscreen{ display:none }
+
+.fullbleed-video .jwcontrols {
+  position: fixed;
+  margin: auto;
+  padding: 0;
+  bottom:0;
+  right: 0;
+  left: 0;
+}
+/* X: ---- position controls at bottom of frame ---- */

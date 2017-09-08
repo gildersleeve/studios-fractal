@@ -1,0 +1,176 @@
+/* -- DRAG AND DROP INTERACTIONS -- */
+
+.object{
+  .opacity(0);
+  z-index: 200;
+  cursor:pointer;
+  .transition(~'opacity .3s ease-in-out, transform 1s ease-in-out 0.1s');
+
+  &.hidden {
+    visibility:hidden;
+    left:0 !important;
+    top:0 !important;
+  }
+  &.fade {
+    .opacity(0.5) !important;
+  }
+  &.ui-draggable-dragging {
+    z-index:300;
+
+    &.fade {
+      .opacity(1) !important;
+    }
+  }
+  &.shadow {
+    .transition(~'opacity .3s ease-in-out, transform 1s ease-in-out 0.1s');
+
+    .cardFront {
+      box-shadow: -10px 10px 5px 5px rgba(1,1,1,.1);
+    }
+  }
+  &.shadowDownLeft .cardFront {
+    box-shadow: -10px -10px 5px 5px rgba(1,1,1,.1);
+  }
+  &.reject {
+    .cardFront {
+      .opacity(0.6);
+    }
+    &:before {
+      font-family: 'uber-icons' !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 5em;
+      position: absolute;
+      left: 18%;
+      top: 18%;
+      height: 64%;
+      width: 64%;
+      content: "\e900";
+      z-index: 2;
+      text-align: center;
+      vertical-align: middle;
+
+      @media @portrait {
+        font-size: 3em;
+      }
+    }
+  }
+
+  .cardFront {
+    .transition(~'box-shadow 1s ease-in-out 0s, opacity 0.3s ease-in-out');
+  }
+}
+
+.target {
+  .opacity(0);
+  z-index: 200;
+  position: relative;
+  .transition(all .25s ease-in-out);
+
+  &.over,
+  &.success.over[data-accepted-objects*=',']  {
+    .scale(1.1);
+  }
+
+  &.success.over {
+    .scale(1);
+  }
+
+  .card {
+    &.card-flipped {
+      ~ .checkmark {
+        display:none;
+      }
+    }
+  }
+
+  .cardFront{
+    outline-offset: -0.5em;
+    box-shadow:none;
+    @media @portrait {
+      outline-offset: -0.15em;
+    }
+    .cardTitle {
+      @media @landscape {
+        padding-bottom: 0.75em;
+      }
+      @media @portrait {
+        padding-bottom: 0.25em;
+      }
+      z-index: -1;
+    }
+  }
+  .cardBack {
+    font-size: 70%;
+  }
+
+  .object {
+    position: absolute !important;
+  }
+}
+
+.objectContainer {
+  .translate3d(0, 0, 0);
+}
+
+
+.target.full-size-target.over {
+  transform: scale(1.05) !important;
+}
+
+.target[data-accepted-objects*=','] .object {
+  display:none;
+}
+.reject {
+  .animation(shake 1s linear both);
+}
+
+/* -- x: DRAG AND DROP INTERACTIONS -- */
+
+
+.checkmark {
+  top:0;
+  left:0;
+  right:0;
+  bottom: 0;
+  margin: auto;
+  width: 3.6em;
+  height: 3.6em;
+  display: block;
+  position:absolute;
+  stroke-width: 2;
+  border-radius: 100%;
+  stroke-miterlimit: 10;
+  .animation(~'fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both');
+
+  .checkmark__circle {
+    fill: none;
+    stroke-width: 2;
+    stroke-dasharray:166;
+    stroke-dashoffset:166;
+    stroke-miterlimit: 10;
+    .animation(~'stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards');
+  }
+  .checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    .animation(~'stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards');
+  }
+}
+
+@keyframes stroke {
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes scale {
+  0%, 100% { transform: none; }
+  50% { transform: scale3d(1.1, 1.1, 1); }
+}
+
+@media screen and (orientation:portrait) {
+  .u-portrait-absolute-top-right {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+  }
+}

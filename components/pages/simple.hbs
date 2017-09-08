@@ -1,0 +1,65 @@
+{{> @player}}
+
+<div class="scene">
+
+  {{> @templates-basic }}
+
+  {{> @templates-basic class="mod_layout-righty"}}
+
+  <!-- SECTION -->
+  <div class="section main {{class}}" data-section="{{newSection}}">
+    <div class="mainBG u-background-size-cover" style="background-image: url('{{{ get 'imageBackground' }}}');"></div>
+    <div class="hero">
+      <div class="heroInner u-background-size-cover" style="background-image: url('{{{ get 'imageHero' }}}');">
+        <!-- HERO ELEMENTS HERE (POPOVERS, TILES, CAROUSEL, ETC)-->
+
+        <!--X HERO ELEMENTS HERE -->
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="contentBG"></div>
+      <div class="contentInner">
+        <div class="contentInnerBG"></div>
+        <div class="contentHeader">
+
+          {{{ get 'contentHeading' }}}
+
+        </div>
+        <div class="contentCopy">
+
+          {{{ get 'contentText' }}}
+
+        </div>
+        <!-- INLINE ELEMENTS HERE (CARDS, TILES, ACCORDIANS, ETC-->
+
+        <div class="flexible">
+
+          {{#if [0].cards}}
+
+          {{#each [0].cards}}
+
+            {{render '@flip_card' this}}
+
+          {{/each}}
+
+          {{else}}
+
+            {{#each cards}}
+
+              {{render '@flip_card' this}}
+
+            {{/each}}
+
+          {{/if}}
+
+        </div>
+
+
+        <!--X INLINE ELEMENTS HERE -->
+      </div><!-- X .contentInner -->
+    </div><!-- X .content -->
+  </div><!--X SECTION {{getSection}} -->
+
+
+</div

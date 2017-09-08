@@ -1,0 +1,601 @@
+//$import "_mixins.less";
+@import "../bootstrap-4.x/bootstrap-scss/mixins";
+@import "../bootstrap-4.x/bootstrap-scss/functions";
+@import "../bootstrap-4.x/bootstrap-scss/variables";
+
+$portrait: 'screen and (orientation:portrait)';
+$landscape: 'screen and (orientation:landscape)';
+
+/* VARIABLES
+-----------------------------------------------------------*/
+
+$html-and-body:               $body-bg;
+
+$light-bg:                    $body-bg;
+$dark-bg:                     #000000;
+
+$text-color:                  $body-color;
+$text-color-alt:              #FFFFFF;
+
+$button-text-color:           #ffffff;
+$image-bg-color:              #dedede;
+
+$brand-primary:               theme-color("primary");
+$brand-primary-hover:         darken($link-color, 15%) !default;
+
+$brand-secondary:             theme-color("secondary");;
+$brand-secondary-hover:       darken($brand-secondary, 20%);
+
+$button-success-bg-color:     #00e676;
+$button-failure-bg-color:     #BBBBBB;
+
+$translucent-bg-color:        rgba(0,0,0,0.6);
+$translucent-bg-color-light:  rgba(255,255,255,0.4);
+
+$font-headlines-sans-serif:   $font-family-sans-serif;
+$font-headlines-serif:         Georgia, Times, 'Times New Roman', serif;
+
+$font-body-sans-serif:        $font-family-sans-serif;
+$font-body-serif:              Georgia, Times, 'Times New Roman', serif;
+
+/* TYPOGRAPHY
+-----------------------------------------------------------*/
+
+body {
+	font-family: $font-body-sans-serif;
+}
+
+//
+// Headings
+//
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: $headings-margin-bottom;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $headings-color;
+}
+
+h1, .h1 { font-size: $h1-font-size; }
+h2, .h2 { font-size: $h2-font-size; }
+h3, .h3 { font-size: $h3-font-size; }
+h4, .h4 { font-size: $h4-font-size; }
+h5, .h5 { font-size: $h5-font-size; }
+h6, .h6 { font-size: $h6-font-size; }
+
+.lead {
+  font-size: $lead-font-size;
+  font-weight: $lead-font-weight;
+}
+
+// Type display classes
+.display-1 {
+  font-size: $display1-size;
+  font-weight: $display1-weight;
+  line-height: $display-line-height;
+}
+.display-2 {
+  font-size: $display2-size;
+  font-weight: $display2-weight;
+  line-height: $display-line-height;
+}
+.display-3 {
+  font-size: $display3-size;
+  font-weight: $display3-weight;
+  line-height: $display-line-height;
+}
+.display-4 {
+  font-size: $display4-size;
+  font-weight: $display4-weight;
+  line-height: $display-line-height;
+}
+
+
+//
+// Horizontal rules
+//
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: $hr-border-width solid $hr-border-color;
+}
+
+
+//
+// Emphasis
+//
+
+small,
+.small {
+  font-size: $small-font-size;
+  font-weight: $font-weight-normal;
+}
+
+mark,
+.mark {
+  padding: $mark-padding;
+  background-color: $mark-bg;
+}
+
+
+//
+// Lists
+//
+
+.list-unstyled {
+  @include list-unstyled;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  @include list-unstyled;
+}
+.list-inline-item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: $list-inline-padding;
+  }
+}
+
+
+//
+// Misc
+//
+
+// Builds on `abbr`
+.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+// Blockquotes
+.blockquote {
+  margin-bottom: $spacer;
+  font-size: $blockquote-font-size;
+}
+
+.blockquote-footer {
+  display: block;
+  font-size: 80%; // back to default font-size
+  color: $blockquote-small-color;
+
+  &::before {
+    content: "\2014 \00A0"; // em dash, nbsp
+  }
+}
+
+
+
+
+/* BASE COLORS
+-----------------------------------------------------------*/
+
+html {
+	background-color: $html-and-body;
+}
+.main {
+	background-color: $light-bg; /*! $light-bg */
+	color: $text-color; /*! $text-color */
+}
+.contentBG,
+.contentInnerBG{
+	background-color: $light-bg; /*! $light-bg */
+}
+.mod_color-alt{
+	&.main{
+		background-color: $dark-bg; /*! $dark-bg */
+		color: $text-color-alt; /*! $text-color-alt */
+	}
+	.contentBG,
+	.contentInnerBG{
+		background-color: $dark-bg; /*! $dark-bg */
+	}
+}
+.mod_content-boxed {
+	.contentInner, .contentInnerBG {
+		border-radius:3px;
+	}
+}
+.mod_background-transparent {
+	.mainBG{
+		opacity: 0.35;
+	}
+	.background-video:after{
+		background: $light-bg; /*! $light-bg */
+		opacity:0.65;
+	}
+	&.mod_color-alt .background-video:after{
+		background: $dark-bg; /*! $dark-bg */
+		opacity: 0.65;
+	}
+}
+.mod_content-transparent {
+	.contentBG,
+	.contentInnerBG{
+		opacity: 0.65;
+	}
+}
+.mod_background-gradient{
+	.mainBG:after, .background-video:after{
+
+    @include gradient-x-three-colors($start-color: rgba(255,255,255,0.6), $mid-color: rgba(255,255,255,0.3), $color-stop: 45%, $end-color: rgba(255,255,255,0));
+
+		//#gradient > .horizontal-three-colors( rgba(255,255,255,0.6), rgba(255,255,255,0.3), 45%, rgba(255,255,255,0) );
+	}
+	&.mod_layout-righty .mainBG:after, &.mod_layout-righty .background-video:after{
+    @include gradient-x-three-colors($start-color: rgba(255,255,255,0.0), $mid-color: rgba(255,255,255,0.3), $color-stop: 55%, $end-color: rgba(255,255,255,0.6));
+		//#gradient > .horizontal-three-colors( rgba(255,255,255,0), rgba(255,255,255,0.3), 55%, rgba(255,255,255,0.6) );
+	}
+	&.mod_color-alt{
+		.mainBG:after, .background-video:after{
+      @include gradient-x-three-colors($start-color: rgba(0,0,0,0.6), $mid-color: rgba(0,0,0,0.3), $color-stop: 45%, $end-color: rgba(0,0,0,0));
+			//#gradient > .horizontal-three-colors( rgba(0,0,0,0.6), rgba(0,0,0,0.3), 45%, rgba(0,0,0,0) );
+		}
+		&.mod_layout-righty .mainBG:after, &.mod_layout-righty .background-video:after{
+      @include gradient-x-three-colors($start-color: rgba(0,0,0,0.0), $mid-color: rgba(0,0,0,0.3), $color-stop: 55%, $end-color: rgba(0,0,0,0.6));
+			//#gradient > .horizontal-three-colors( rgba(0,0,0,0), rgba(0,0,0,0.3), 55%, rgba(0,0,0,0.6) );
+		}
+	}
+	@media #{$portrait} {
+		.mainBG{
+			opacity:0.35;
+		}
+		.mainBG:after{
+			display: none;
+		}
+		.background-video:after{
+			background: $light-bg; /*! $light-bg */
+			opacity:0.65;
+		}
+		.mod_color-alt .background-video:after{
+			background: $dark-bg; /*! $dark-bg */
+		}
+	}
+}
+
+/* BUTTONS
+-----------------------------------------------------------*/
+
+.button {
+	background-color:$brand-primary;
+	color:$button-text-color;
+	font-weight:400;
+	font-size:1em;
+	text-align:center;
+
+	&:hover {
+		background-color:$brand-primary-hover;
+	}
+
+	&.clicked {
+		&.correct {
+			background-color: $button-success-bg-color;
+		}
+		&.incorrect {
+			background-color: $button-failure-bg-color;
+		}
+	}
+	&.outline {
+		background-color:transparent;
+		border: 2px solid;
+		color:inherit;
+
+		&:hover {
+			background-color:transparent;
+			color:$brand-primary;
+		}
+
+		&.clicked {
+			&.correct {
+				background-color:transparent;
+				color:$button-success-bg-color;
+			}
+			&.incorrect {
+				background-color:transparent;
+				color:$button-failure-bg-color;
+			}
+		}
+	}
+}
+
+/* MODAL COLORS
+-----------------------------------------------------------*/
+
+.blackout {
+	background: $translucent-bg-color; /*! $translucent-bg-color */
+}
+.modalInner {
+	background: $light-bg; /*! $light-bg */
+}
+.modalImg{
+	border-right: solid 1px $image-bg-color; /*! $image-bg-color */
+}
+.modal-button {
+	font-weight: 600;
+	text-align: center;
+	color: $button-text-color; /*! $button-text-color */
+	background-color: $brand-primary; /*! $brand-primary */
+	&:hover {
+		background-color: $brand-primary-hover; /*! $brand-primary-hover */
+	}
+	&.outline {
+		color:$brand-primary; /*! $brand-primary */
+		background:transparent;
+		border-top: solid 1px $brand-primary; /*! $brand-primary */
+		&:hover{
+			color:$brand-primary-hover; /*! $brand-primary-hover */
+			border-top-color: $brand-primary-hover; /*! $brand-primary-hover */
+		}
+	}
+}
+@media #{$portrait} {
+	.modalImg {
+		border-right: none;
+		border-bottom: solid 1px $image-bg-color; /*! $image-bg-color */
+	}
+}
+
+/* TIP COLORS
+-----------------------------------------------------------*/
+
+.tip {
+	color:$text-color-alt; /*! $text-color-alt */
+	text-align: center;
+}
+.tipCircle {
+	background-color: $brand-primary; /*! $brand-primary */
+}
+.tipButton {
+	color:$button-text-color; /*! $button-text-color */
+}
+.tipImg{
+	background-color: $image-bg-color; /*! $image-bg-color */
+}
+
+/* FANCY TOOLTIPS
+-----------------------------------------------------------*/
+
+.fancy-tooltip:hover .fancy-tooltip-bg {
+	background:$brand-primary-hover; /*! $brand-primary-hover */
+}
+.fancy-tooltip-bg,
+.fancy-tooltip.show-content:hover .fancy-tooltip-bg,
+.fancy-tooltip.show-content.visited .fancy-tooltip-bg {
+	background:$brand-primary; /*! $brand-primary */
+}
+.fancy-tooltip {
+	&.visited {
+		.fancy-tooltip-bg {
+			background:$button-failure-bg-color; /*! $button-failure-bg-color */
+		}
+	}
+	.fancy-tooltip-point {
+		color:$button-text-color; /*! $button-text-color */
+	}
+	.left,
+	.right{
+		color:$button-text-color; /*! $button-text-color */
+		color:fade($button-text-color,60);
+
+		&:hover {
+			color:$button-text-color; /*! $button-text-color */
+			color:fade($button-text-color,100);
+		}
+	}
+	.fancy-tooltip-content {
+		color:$button-text-color; /*! $button-text-color */
+	}
+}
+.fancy-tooltip-backdrop {
+	background: transparent url('http://cdn.staging.experticity.com/contrib/mfg/3p5demo/contrib/images/black-box-60.png') repeat;
+	background:$translucent-bg-color; /*! $translucent-bg-color */
+}
+
+$gradient-start: fade($brand-primary, 0);
+$gradient-end: fade($brand-primary, 100);
+.fancy-tooltip.show-content .fancy-tooltip-inner:after {
+	background:fade($brand-primary,75);
+
+  @include gradient-y($start-color: $gradient-start, $end-color: $gradient-end, $start-percent: 0%, $end-percent: 100%);
+	//#gradient > .vertical( $brand-primary, $brand-primary, 0%, 100%);
+}
+
+/* ACCORDIAN COLOR
+-----------------------------------------------------------*/
+
+.accordian-label {
+	font-weight: bold;
+	&:hover {
+		color: $brand-primary; /*! $brand-primary */
+	}
+}
+
+/* CARDS COLORS
+-----------------------------------------------------------*/
+
+.card{
+	color: $text-color; /*! $text-color */
+}
+.cardFront {
+	background-color: $light-bg; /*! $light-bg */
+
+	.cardTitle {
+		text-align: center;
+		color: $text-color-alt; /*! $text-color-alt */
+		background: $translucent-bg-color; /*! $translucent-bg-color */
+	}
+}
+.cardBack {
+	background-color: $light-bg; /*! $light-bg */
+	font-size:85%;
+}
+
+/* GALLERY COLORS
+-----------------------------------------------------------*/
+
+.caption, .gallery-subtitle {
+	background:$translucent-bg-color; /*! $translucent-bg-color */
+	color: $text-color-alt; /*! $text-color-alt */
+}
+.gallery-tile .caption, .card .caption{
+	text-align:center;
+}
+
+/* VIDEO
+-----------------------------------------------------------*/
+
+.videoButton {
+	color:$button-text-color; /*! $button-text-color */
+	background-color: $dark-bg; /*! $dark-bg */
+}
+.mod_background-gradient .background-video:after,
+.mod_background-transparent .background-video:after{
+	content: " ";
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+}
+
+/* DRAG AND DROP
+-----------------------------------------------------------*/
+
+.object {
+	&.reject {
+		.card {
+			background: $button-failure-bg-color; /*! $button-failure-bg-color */
+		}
+		&:before {
+			color: $translucent-bg-color-light; /*! $translucent-bg-color-light */
+		}
+	}
+}
+.target {
+	&.over,
+	&.success.over[data-accepted-objects*=','] {
+		.cardFront {
+			outline-color: $translucent-bg-color-light; /*! $translucent-bg-color-light */
+		}
+	}
+	.cardFront{
+		outline: 2px dashed $translucent-bg-color; /*! $translucent-bg-color */
+	}
+}
+
+.checkmark {
+	stroke: $button-text-color; /*! $button-text-color */
+	box-shadow: inset 0px 0px 0px $button-success-bg-color; /*! $button-success-bg-color */
+
+	.checkmark__circle {
+		stroke: $button-success-bg-color; /*! $button-success-bg-color */
+	}
+}
+@keyframes fill {
+100% { box-shadow: inset 0px 0px 0px 100px $button-success-bg-color; /*! $button-success-bg-color */ }
+}
+
+
+/* ---- NEW SPLASH COLOR !! --------------------------------------------- */
+
+
+.mod_color-splash .contentBG,
+.mod_color-splash .contentInnerBG {
+	background-color: #efdcd5; /*! $splash-bg */
+}
+
+.mod_color-splash.main {
+	background-color: #efdcd5; /*! $splash-bg */
+}
+.mod_color-splash .contentBG,
+.mod_color-splash .contentInnerBG {
+	background-color: #efdcd5; /*! $splash-bg */
+}
+
+.mod_color-splash.splash2 .contentBG,
+.mod_color-splash.splash2 .contentInnerBG {
+	background-color: #c1e0cf; /*! $splash-bg */
+}
+
+.mod_color-splash.splash2.main {
+	background-color: #c1e0cf; /*! $splash-bg */
+}
+.mod_color-splash.splash2 .contentBG,
+.mod_color-splash.splash2 .contentInnerBG {
+	background-color: #c1e0cf; /*! $splash-bg */
+}
+@media screen and (orientation:landscape){
+	.mod_article-squish.main::before{
+		min-height: 5em;
+		padding-bottom: 5%;
+	}
+}
+
+/*! ---------------------------------------- ARTICLE UPDATES ---------------------------------------- */
+
+.main{ position: relative; }
+
+.mod_layout-simple .contentInner,
+.mod_layout-banner .contentInner,
+.mod_hero-landscape-off .contentInner{
+	max-width: 1280px;
+}
+
+/* this max-width is based on an ideal paragraph width of about 70 - 80 characters  */
+.contentCopy, .contentHeader{
+	max-width: 48em;
+	margin: auto;
+}
+
+/*! ----- NEW MODS ----- */
+
+.mod_article-squish.main{
+	min-height: 0;
+}
+.mod_article-squish .content:before{
+	padding-bottom: 0;
+	height: 0;
+}
+.main.mod_article-16x9{
+	min-height: 0;
+}
+.mod_article-16x9 .content:before{
+	padding-bottom: 0;
+	max-height: 100vh;
+	height: 56.25vw;
+}
+
+/* -- FLICKITY --*/
+.flickity-prev-next-button, .closeBtn{
+	border: 1px solid $body-color;
+	box-sizing: border-box;
+	line-height: 1em;
+	font-size: 3em;
+	height: 1em;
+	width: 1em;
+}
+.closeBtn .icon {
+	position: absolute;
+	font-size: 0.6em;
+	margin: auto;
+	height: 1em;
+	width: 1em;
+	bottom:0;
+	right: 0;
+	left: 0;
+	top: 0;
+}
+.closeBtn .icon:before{
+	vertical-align: text-bottom;
+}
+.video-wrapper .closeBtn{
+	border: none;
+}

@@ -1,0 +1,34 @@
+<!-- SECTION -->
+<div class="section main mod_content-bg-off" data-section="{{newSection}}">
+  <div class="mainBG u-background-size-cover" style="background-image: url('{{{ get 'imageBackground' }}}');"></div>
+  <div class="hero">
+    <div class="heroInner u-background-size-cover" style="background-image: url('{{{ get 'imageHero' }}}');">
+      <!-- HERO ELEMENTS HERE (POPOVERS, TILES, CAROUSEL, ETC)-->
+  {{render '@expert_tip' }}
+      <!--X HERO ELEMENTS HERE -->
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="contentBG"></div>
+    <div class="contentInner">
+      <div class="contentInnerBG"></div>
+      <div class="contentHeader">
+
+        {{{ get 'contentHeading' }}}
+
+      </div>
+      <div class="contentCopy">
+
+        {{{ get 'contentText' }}}
+  {{render '@expert_tip' }}
+      </div>
+      <!-- INLINE ELEMENTS HERE (CARDS, TILES, ACCORDIANS, ETC-->
+
+      <!--X INLINE ELEMENTS HERE -->
+    </div><!-- X .contentInner -->
+  </div><!-- X .content -->
+
+  {{render '@expert_tip' }}
+
+</div><!--X SECTION {{getSection}} -->

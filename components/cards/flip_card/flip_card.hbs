@@ -1,0 +1,42 @@
+<!-- CARD1 -->
+
+<div class="card {{#if width}}{{width}}{{else}}{{/if}}">
+  <div class="cardBack">
+
+    <div class="bannerImg u-background-size-cover" style="background-image: url('{{{ cardImageBack.value }}}')" ></div>
+    <div class="cardCopy">
+      <h5 class="cardTitle">{{{ cardTitle.value }}}</h5>
+
+      {{{cardText.value}}}
+
+    </div>
+  </div>
+
+  <div class="cardFront u-background-size-cover" style="background-image: url('{{{ cardImageFront.value }}}')" >
+    <h5 class="caption">{{{ cardTitle.value }}}</h5>
+    <div class="marker circle"> <div class="icon uber-plus"></div> </div>
+  </div>
+</div>
+
+<!--X CARD1 -->
+
+<!-- FLIPPING CARDS -->
+<script type="text/javascript">
+
+$(function(){
+  $('.card').find('.cardBack').css('transition','none').parent('.card').addClass('flippable').click(function(){
+    $(this).removeClass('card-flip-preview').toggleClass('card-flipped').find('.cardBack').attr('style','');
+  });
+
+  setTimeout(function(){
+    $('.flippable:first').append($('<div class="reloadDouble" ></div>')).addClass('card-flip-preview');
+    setTimeout(function(){
+      $('.flippable:first').removeClass('card-flip-preview');
+      $('.reloadDouble').fadeOut('slow');
+    }, 500);
+  }, 800);
+
+});
+
+</script>
+<!--X FLIPPING CARDS -->
