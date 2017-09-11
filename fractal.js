@@ -35,7 +35,7 @@ fractal.docs.set('path', path.join(__dirname, 'docs'));
 fractal.web.set('static.path', path.join(__dirname, 'public'));
 fractal.web.set('static.mount', '/public');
 fractal.web.set('builder.dest', __dirname + '/build');
-//fractal.web.set('server.sync', true);
+fractal.web.set('server.sync', true);
 
 const hbs = require('@frctl/handlebars')({
     helpers: {
@@ -58,6 +58,13 @@ const hbs = require('@frctl/handlebars')({
             return options.data.root[0][str].value;
           } else {
             return options.data.root[options.data.root.pageSection][str].value;
+          }
+        },
+        getCurrent: function (ptr, options) {
+          if (typeof options.data.root.pageSection === 'undefined') {
+            return options.data.root[0].ptr;
+          } else {
+            return options.data.root[options.data.root.pageSection][ptr];
           }
         },
         setVariable: function(varName, varValue, options){

@@ -60,7 +60,7 @@
               {
                   "cardTitle": {
                       "attr": "Card Title",
-                      "value": "Card One Title"
+                      "value": "Stacked Card One Title"
                   },
                   "cardText": {
                       "attr": "Card Text",
@@ -112,7 +112,7 @@
                   }
               }
 
-            ]            
+            ]
         }
     ]
 }
