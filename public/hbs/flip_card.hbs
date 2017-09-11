@@ -1,0 +1,21 @@
+<!-- CARD1 -->
+
+<div class="card {{#if width}}{{width}}{{else}}{{/if}}">
+  <div class="cardBack">
+
+    <div class="bannerImg u-background-size-cover" style="background-image: url('')" data-src="{{{ cardImageBack.value }}}"></div>
+    <div class="cardCopy">
+      {{#if cardTitle.value}}<h5 class="cardTitle">{{{ cardTitle.value }}}</h5>{{/if}}
+
+      {{{cardText.value}}}
+
+    </div>
+  </div>
+
+  <div class="cardFront u-background-size-cover" style="background-image: url('')"  data-src="{{{ cardImageFront.value }}}" >
+    {{#if cardTitle.value}}<h5 class="caption">{{{ cardTitle.value }}}</h5>{{/if}}
+    <div class="marker circle"> <div class="icon uber-plus"></div> </div>
+  </div>
+</div>
+
+<!--X CARD1 -->

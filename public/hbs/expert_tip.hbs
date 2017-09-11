@@ -1,0 +1,57 @@
+<!-- SECTION2 EXPERT TIP  !!! NEST ME!, I WILL NOT STACK !!! -->
+<div class="section tip">
+  <div class="tipButton">
+    <div class="tipCircle"></div>
+    <div class="tipCircle tipCircle2 pulsate"></div>
+  </div>
+
+  <div class="tipInner u-display-none">
+    <div class="tipImg u-background-size-cover" style="background-image: url('{{{ get 'tipImage' }}}');"></div>
+
+    <div class="tipContent">
+
+      <div class="tipContentInner">
+        <h4>{{{ get 'tipHeading' }}}</h4>
+        {{{ get 'tipText' }}}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="tipIcons">
+    <span class="open icon uber-expert-tip"></span>
+    <span class="close icon uber-expert-close"></span>
+  </div>
+
+</div>
+<!--X SECTION2 EXPERT TIP -->
+
+<!-- Expert Tip Toggle -->
+<script type="text/javascript">
+
+$(function(){
+  var tipIn = "animated bounceInDown" ;
+  var iconIn =  "animated tada delay3" ;
+
+  $('.tip').addClass(tipIn);
+  $('.tipIcons').addClass(iconIn);
+
+  $('.tipIcons').click(function() {
+    var $thisTip = $(this).parents('.tip');
+    var contentIn = "animated bounceInDown";
+    var contentOut = "animated slideOutUp duration3 ie-display-none";
+
+    $thisTip.find('.pulsate').removeClass('pulsate');
+
+    if ( $thisTip.hasClass('tip-active') === false ){
+      $thisTip.addClass('tip-active').find('.tipInner').removeClass(contentOut)
+      .addClass(contentIn+' u-display-none').removeClass('u-display-none');
+    }
+    else {
+      $thisTip.removeClass('tip-active').find('.tipInner').removeClass(contentIn).addClass(contentOut);
+    }
+  });
+});
+
+</script>
+<!-- X: Expert Tip Toggle -->
