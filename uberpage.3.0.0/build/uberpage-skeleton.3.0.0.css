@@ -4234,9 +4234,10 @@ html .content:before {
   overflow: hidden;
   cursor: auto;
   height: auto;
+  max-height: 1000px;
 }
 .closed .accordion-text {
-  max-height: 0 !important;
+  max-height: 0;
 }
 .closed .accordion-label:before {
   -webkit-transform: none;
@@ -4392,8 +4393,8 @@ html .content:before {
   width: auto;
   margin: 0.25em;
 }
-.flexible .card.card-flipped {
-  z-index: 100;
+.flexible .card.card-current-flipped {
+  z-index: 10;
 }
 .flexible .card .cardFront {
   position: relative;

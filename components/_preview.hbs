@@ -36,26 +36,30 @@
 
   function initAccordion(){
 
-      var minHeight = 0;
-      var maxHeight = 0;
-
-      $('.accordion-text-inner').each(function () {
-        maxHeight = ($(this).outerHeight() > maxHeight ? $(this).height()+60 : maxHeight);
-      });
-
-      minHeight = $(this).find('.contentInner').outerHeight()+maxHeight;
-
-      $(this).find('.accordion-text').css('maxHeight',maxHeight);
-      $(this).find('.contentInner').css('minHeight',minHeight);
-
       $('.accordion').on('click', function(){
         if( $(this).hasClass('closed') ){
-          $(this).parents('.scene').find('.accordion').addClass('closed');
+          $(this).siblings('.accordion').addClass('closed');
           $(this).removeClass('closed');
-        }
-        else{ $(this).parents('.scene').find('.accordion').addClass('closed'); }
-      });
 
+          if ( typeof $(this).attr('data-hero') !== 'undefined') {
+              var $heroInner = $(this).closest('.main').find('.heroInner');
+                $heroInner.attr('data-hero', $heroInner.css('background-image')).css({'background-image': 'url("' + $(this).attr('data-hero') + '")'})
+          }
+          if ( typeof $(this).attr('data-background') !== 'undefined') {
+              $(this).closest('.main').find('.mainBG').css({'background-image': 'url("' + $(this).attr('data-background') + '")'})
+          }
+
+        } else{
+          $(this).addClass('closed').siblings('.accordion').addClass('closed');
+
+          var $heroInner = $(this).closest('.main').find('.heroInner');
+          if (typeof $heroInner.attr('data-hero') !== 'undefined' ) {
+            $heroInner.css({'background-image': 'url("' + $heroInner.attr('data-hero') + '")'})
+          }
+
+        }
+
+      });
 
   } // x: initAccordion()
 
@@ -64,7 +68,8 @@
       .find('.cardBack').css('transition','none')
       .parent('.card').addClass('flippable')
       .click(function(){
-        $(this).removeClass('card-flip-preview').toggleClass('card-flipped').find('.cardBack').attr('style','');
+        $('.card-current-flipped').removeClass('card-current-flipped');
+        $(this).removeClass('card-flip-preview').toggleClass('card-flipped').addClass('card-current-flipped').find('.cardBack').attr('style','');
     });
 
     setTimeout(function(){

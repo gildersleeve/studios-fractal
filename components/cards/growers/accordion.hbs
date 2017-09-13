@@ -1,10 +1,10 @@
-<div class="accordion closed">
+<div class="accordion closed" {{#if accordionHero}}data-hero="{{{ accordionHero.value }}}"{{/if}} {{#if accordionBackground}}data-background="{{{ accordionBackground.value }}}"{{/if}}>
   <div class="accordion-label">
-    <h4>{{{ accordionTitle.value }}}</h4>
+    {{{ accordionTitle.value }}}
   </div>
   <div class="accordion-text">
     <div class="accordion-text-inner">
-    <h4>{{{ accordionText.value }}}</h4>
+      {{{ accordionText.value }}}
     </div>
   </div>
 </div>

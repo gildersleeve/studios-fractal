@@ -12,7 +12,7 @@
 
             "imageBackground": {
               "attr": "Section Background",
-              "value": ""
+              "value": "//source.unsplash.com/collection/172064/500x500"
             },
             "imageHero": {
               "attr": "Section Hero",
